@@ -1,0 +1,34 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+django = "*"
+django-rest-framework = "*"
+djangorestframework = "*"
+graphene = "*"
+graphene-django = "*"
+graphql-core = "*"
+graphql-relay = "*"
+"iso8601" = "*"
+markdown = "*"
+promise = "*"
+pytz = "*"
+rx = "*"
+singledispatch = "*"
+typing = "*"
+model-mommy = "*"
+coverage = "*"
+
+
+[dev-packages]
+
+
+
+[requires]
+
+python_version = "3.6"

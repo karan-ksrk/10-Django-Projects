@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ Object.title}} - {{block.super }}
+{% endblock title %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+{% comment %} <h1>{{ request.path }}</h1> {% endcomment %}
+{% if reuest.path == '/' %}
+    <h1>Welcome Home</h1>
+{% else %}
+
+    {% include 'products/detail_snippet.html' with product=Object %}        
+    
+{% endif %}
+
+
+{% endblock content %}
