@@ -1,0 +1,78 @@
+{% load static %}
+
+	<div class="recent-news-wrapper section-gap p-t-xs-15 p-t-sm-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="axil-latest-post">
+						<div class="media post-block m-b-xs-20">
+							<figure class="fig-container">
+								<a href="{{ latest.first.get_absolute_url }}"><img src="{{ latest.first.thumbnail.url }} "
+										alt="latest post"></a>
+								<div class="post-cat-group m-b-xs-10">
+									<a href="business.html"
+										class="post-cat cat-btn bg-color-blue-one">{{ latest.first.categories.first }}</a>
+								</div>
+							</figure>
+							<div class="media-body">
+								<h3 class="axil-post-title hover-line hover-line"><a
+										href="{{ latest.first.get_absolute_url }}">{{ latest.first.title }}</a></h3>
+								<div class="post-metas">
+									<ul class="list-inline">
+										<li>By <a href="#" class="post-author">{{ latest.first.author }}</a></li>
+										<li><i class="dot">.</i>{{ latest.first.timestamp|date:"F j, Y" }}</li>
+										<li><a href="#"><i class="feather icon-activity"></i>{{latest.first.views_count}}</a></li>
+										<li><a href="#"><i class="feather icon-share-2"></i>{{latest.first.share_count}}</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- End of .post-block -->
+					</div>
+					<!-- End of .latest-post -->
+				</div>
+				<!-- End of .col-lg-6 -->
+				{% if True %}
+				<p></p>
+				{% endif %}
+				<div class="col-lg-6">
+					<div class="axil-recent-news">
+						<div class="section-title d-flex m-b-xs-30">
+							<h2 class="axil-title">Recent Stories</h2>
+							<a href="#" class="btn-link ml-auto">ALL RECENT NEWS</a>
+						</div>
+						<!-- End of .section-title -->
+						<div class="axil-content">
+							{%  for obj in latest %}
+							{% if not obj == latest.first %}
+							<div class="media post-block m-b-xs-30">
+								<a href="{{ obj.get_absolute_url }}" class="align-self-center"><img
+										class=" m-r-xs-30" src="{{ obj.thumbnail.url }} " alt=""></a>
+								<div class="media-body">
+									<div class="post-cat-group m-b-xs-10">
+										<a href="#"
+											class="post-cat cat-btn bg-color-purple-one">{{ obj.categories.first }}</a>
+									</div>
+									<h3 class="axil-post-title hover-line hover-line"><a
+											href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
+									<div class="post-metas">
+										<ul class="list-inline">
+											<li>By <a href="#">{{ obj.author }}</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- End of .post-block -->
+							{% endif %}
+							{% endfor %}
+						</div>
+						<!-- End of .content -->
+					</div>
+					<!-- End of .recent-news -->
+				</div>
+				<!-- End of .col-lg-6 -->
+			</div>
+			<!-- End of .row -->
+		</div>
+		<!-- End of .container -->
+	</div>

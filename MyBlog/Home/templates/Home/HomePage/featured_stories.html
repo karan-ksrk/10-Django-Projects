@@ -1,0 +1,36 @@
+{% load static %}
+	<section class="section-gap section-gap-top__with-text trending-stories">
+		<div class="container">
+			<div class="section-title m-b-xs-40">
+				<h2 class="axil-title">Featured Stories</h2>
+				<a href="#" class="btn-link">ALL TRENDING STORIES</a>
+			</div>
+			<div class="row">
+				{%  for objects in object_list %}
+				<div class="col-lg-6">
+					<div class="media post-block m-b-xs-30">
+						<a href="{{ objects.get_absolute_url }}" class="align-self-center"><img class=" m-r-xs-30"
+								src="{{ objects.thumbnail.url }} " alt=""></a>
+						<div class="media-body">
+							<div class="post-cat-group m-b-xs-10">
+								<a href="business.html" class="post-cat cat-btn bg-color-blue-grey-one">{{ objects.categories.first }}</a>
+							</div>
+							<h3 class="axil-post-title hover-line hover-line"><a
+									href="{{ objects.get_absolute_url }}">{{ objects.title }}</a></h3>
+							<div class="post-metas">
+								<ul class="list-inline">
+									<li>By <a href="#">{{ objects.author }}</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- End of .post-block -->
+				</div>
+				<!-- End of .col-lg-6 -->
+				{% endfor %}
+			</div>
+			<!-- End of .row -->
+		</div>
+		<!-- End of .container -->
+	</section>
+	<!-- End of .trending-stories -->

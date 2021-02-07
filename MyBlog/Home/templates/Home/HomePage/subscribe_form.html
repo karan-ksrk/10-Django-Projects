@@ -1,0 +1,33 @@
+{% load static %}
+
+<div class="newsletter-widget weekly-newsletter bg-grey-light-three m-b-xs-40">
+							<div class="newsletter-content">
+								<div class="newsletter-icon">
+									<i class="feather icon-send"></i>
+								</div>
+								<div class="section-title">
+									<h3 class="axil-title">Subscribe To Our Weekly
+										Newsletter</h3>
+									<p class="mid m-t-xs-10 m-b-xs-20">No spam, notifications only about new
+										products,
+										updates.</p>
+								</div>
+								<!-- End of .section-title -->
+								<div class="subscription-form-wrapper">
+									<form action="." method="POST" class="subscription-form">
+										{% csrf_token %}
+										<div class="form-group form-group-small m-b-xs-20">
+											<label for="subscription-email-2">Enter Email Address</label>
+											<input type="email" name="email"
+												id="subscription-email-2">
+										</div>
+										<div class="m-b-xs-0">
+											<button class="btn btn-primary btn-small">SUBSCRIBE</button>
+										</div>
+									</form>
+									<!-- End of .subscription-form -->
+								</div>
+								<!-- End of .subscription-form-wrapper -->
+							</div>
+							<!-- End of .newsletter-content -->
+						</div>

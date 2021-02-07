@@ -1,0 +1,15 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock title %}
+
+
+{% block maincontent %}
+<p>Here is your search result</p>
+{% for post in queryset %}
+<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+{% endfor %}
+
+
+{% endblock maincontent %}

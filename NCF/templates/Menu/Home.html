@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="section">
+        <h1>Welcome To NCF</h1>
+        <div class="video-container">
+        <div class="color-overlay"></div>
+            <video autoplay loop muted> 
+            <source  src=" {{MEDIA_URL}}/media/video.mp4" type="video/mp4"></video>
+        </div>
+    </div>
+
+<p></p>
+    
+    <div class='dishes'>
+    
+        <div class="item-list">
+        
+            {% for dish in dishes %}
+                <img class="image" src="{{MEDIA_URL}}/media/{{dish.Image}}">
+            {% endfor %}
+        </div>
+        
+        
+        
+    </div>
+    
+
+{% endblock content %}

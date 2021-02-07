@@ -1,0 +1,130 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block title %}
+news
+{% endblock title %}
+
+
+
+<body>
+	<!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+
+	{% block maincontent %}
+	<!-- Main contents
+	================================================ -->
+	<div class="main-content">
+
+	
+	
+
+		<div class="breadcrumb-wrapper">
+			<div class="container">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Posts</li>
+					</ol>
+					<!-- End of .breadcrumb -->
+				</nav>
+			</div>
+			<!-- End of .container -->
+		</div>
+		<!-- End of .breadcrumb-container -->
+
+		<!-- Banner starts -->
+		<section class="banner banner__default bg-grey-light-three">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-12">
+						<div class="post-title-wrapper">
+							<h2 class="m-b-xs-0 axil-post-title hover-line">Posts</h2>
+						</div>
+						<!-- End of .post-title-wrapper -->
+					</div>
+					<!-- End of .col-lg-8 -->
+				</div>
+			</div>
+			<!-- End of .container -->
+		</section>
+		<!-- End of .banner -->
+
+		<div class="random-posts section-gap">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						 <main class="axil-content">
+							 <div class="add-container m-b-xs-60">
+								<a href="#"><img src="{% static 'Home\images\clientbanner\clientbanner.jpg' %}" alt="add one" class="img-fluid"></a>
+                            </div>
+                            {% for art in queryset %}
+                            <div class="media post-block post-block__mid m-b-xs-30">
+                                <a href="post-format-standard.html" class="align-self-center"><img class=" m-r-xs-30"
+                                        src="{{ art.thumbnail.url }}" alt=""></a>
+                                <div class="media-body">
+                                    <div class="post-cat-group m-b-xs-10">
+                                        <a href="business.html" class="post-cat cat-btn bg-color-blue-one">{{ art.categories.first }}</a>
+                                    </div>
+                                    <h3 class="axil-post-title hover-line hover-line"><a
+                                            href="post-format-standard.html">{{ art.title }}</a></h3>
+                                    <p class="mid">{{ art.overview }}</p>
+                                    <div class="post-metas">
+                                        <ul class="list-inline">
+											<li>By <a href="#">{{ art.author }}</a></li>
+											<li><a href="#">{{ art.timestamp|timesince }}</a> ago</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- End of .post-block -->
+                        </main>
+						<!-- End of .axil-content -->
+					</div>
+					<!-- End of .col-lg-8 -->
+					<div class="col-lg-4">
+						<aside class="post-sidebar">
+							<div class="add-block-widget m-b-xs-40">
+								<a href="#"><img src="{% static 'Home\images\clientbanner\clientbanner3.jpg' %}" alt="sidebar add" class="img-fluid"></a>
+							</div>
+							<!-- End of .add-block-widget -->
+
+						{% include 'Home/HomePage/subscribe_form.html' %}
+							
+						</aside>
+                        <!-- End of .post-sidebar -->
+                        
+                    </div>
+                <nav class="pagination-container">
+		        <div class="pagination">
+				{% if queryset.has_previous %}
+				<a class="pagination-newer" href="?{{ page_request_var }}={{ queryset.previous_page_number }}">PREV</a>
+				{% endif %}
+				<span class="pagination-inner">
+					<a class="pagination-active" href="#">{{ queryset.number }}</a>
+				</span>
+				{% if queryset.has_next %}
+				<a class="pagination-older" href="?{{ page_request_var }}={{ queryset.next_page_number }}">NEXT</a>
+				{% endif %}
+		</div>
+</nav>
+					<!-- End of .col-lg-4 -->
+				</div>
+				<!-- End of .row -->
+			</div>
+			<!-- End of .container -->
+		</div>
+		<!-- End of .random-posts -->
+
+
+
+	</div>
+	<!-- End of .main-content -->
+	{% endblock maincontent %}
+
+</body>
+
+
+<!-- Mirrored from axilthemes.com/demo/template/papr/lifestyle.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Mar 2020 04:44:12 GMT -->
+</html>

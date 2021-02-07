@@ -1,0 +1,17 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.item-list {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    height: 400px;
+    width: 200px;
+}
+
+.image {
+    display: block;
+    height: 200px;
+    width: 200px;
+}
